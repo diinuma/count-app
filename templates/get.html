@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>人数</title>
-
+        <title>人数カウント表示ツール</title>
+        <link rel="stylesheet" href="static/style.css">
         <script>
             setInterval(function(){
                 document.location.reload();
@@ -10,8 +10,34 @@
         </script>
     </head>
     <body>
-        <h1>{{count}}個</h1>
+        
+        <h1 style="text-align:center">
+            現在、喫煙室にいる人数は<br>
+            定員10名中 {{count}}人です。
+        </h1>
 
-        ※5秒ごとに更新されます
+        
+        {% if count >= 10 %}
+        <h2 style="text-align:center">
+            <span style="text-align:center">
+                <p style="color: red;">現在の状態：満員<br>中に入らないでください。</p>
+            </span>
+        </h2>
+        {% elif count >= 7 %}
+        <h2 style="text-align:center">
+            <span style="text-align:center">
+                <p style="color:orange;">現在の状態：混雑<br>他の方と間隔をあけてお使いください。</p>
+            </span>
+        </h2>
+        {% else %}
+        <h2 style="text-align:center">
+            <span style="text-align:center">
+                <p style="color: blue;">現在の状態：空いています<br>ご自由にお使いください。</p>
+            </span>
+        </h2>
+        {% endif %}
+
+        <h3 style="text-align:right">※人数は5秒ごとに更新されます</h3>
+    
     </body>
 </html>
