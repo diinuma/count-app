@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>人数カウント表示ツール</title>
+        <link rel="stylesheet" href="static/style.css">
+        <script>
+            setInterval(function(){
+                document.location.reload();
+            }, 2000)
+        </script>
+        <style>
+            .text_big {
+                font-size:17vw;
+            }
+            .text_med {
+                font-size:6vw;
+            }
+            .text_small {
+                font-size:2vw;
+            }
+        </style>
+    </head>
+    <body bgcolor="darkorange" text="white">
+        <div style="text-align:center" class="text_big" >入場注意</div>
+        <div style="text-align:center" class="text_small" >現在状況</div>
+        <div style="text-align:center" class="text_med" >{{count}} 人 / {{limit}} 人</div>
+        <div style="text-align:center" class="text_small" >現在人数 　　　 　　定員人数</div>
+
+        <h1 style="text-align:center" class="text_small">
+            他の方と間隔をあけてお使いください。
+        </h1>
+
+        <h3 style="text-align:right">※人数は2秒ごとに更新されます</h3>
+    
+    </body>
+</html>

@@ -3,14 +3,23 @@ import json
 
 app = Flask(__name__)
 
+# 定員
+limit = 4
+
 @app.route('/')
 def get():
     try:
-        with open('persons.json') as f:
+        with open('tmp/persons.json') as f:
             load = json.load(f)
 
             count = load['count']
-            return render_template('get.html', count=count)
+            if count >= limit:
+                return render_template('danger.html', count=count ,limit=limit)
+            elif count >= (limit//2):
+                return render_template('caution.html', count=count ,limit=limit)
+            else:
+                return render_template('safety.html', count=count ,limit=limit)
+
     except FileNotFoundError:
         return render_template('error.html')
 
