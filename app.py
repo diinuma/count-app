@@ -17,7 +17,7 @@ limit = args["limit"]
 def get():
     try:
         # with open('tmp/persons.json') as f:
-        with open('persons.json') as f:
+        with open('tmp/persons.json') as f:
             load = json.load(f)
 
             count = load['count']
